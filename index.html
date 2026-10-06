@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoneside Retreats - Executive Briefing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        /* Smooth scrolling for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Simple pulse animation for the audio button */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+        .playing-audio { animation: pulse-ring 2s infinite; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col items-center py-6 px-4">
+
+    <div class="w-full max-w-2xl bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 pb-10">
+        
+        <!-- Header Section -->
+        <div class="bg-slate-900 text-white p-6 md:p-8 relative">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <p class="text-blue-400 font-bold tracking-wider text-xs uppercase mb-1">Executive Briefing</p>
+                    <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">99 Happy Valley Rd<br>Acquisition Strategy</h1>
+                </div>
+            </div>
+            <p class="text-slate-300 text-sm font-medium">Prepared for: <span class="text-white font-bold">Kristen Derk</span></p>
+            <p class="text-slate-400 text-xs mt-1">Stoneside Ventures, LLC dba Stoneside Retreats</p>
+        </div>
+
+        <!-- Floating Audio Button -->
+        <div class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200 p-4 flex justify-between items-center shadow-sm">
+            <div class="flex items-center gap-2">
+                <button onclick="changeTextSize(-10)" class="flex items-center justify-center w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm shadow-sm border border-slate-200 transition-colors" title="Decrease Text Size">A-</button>
+                <button onclick="changeTextSize(10)" class="flex items-center justify-center w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-base shadow-sm border border-slate-200 transition-colors" title="Increase Text Size">A+</button>
+            </div>
+            <button id="audioBtn" onclick="toggleAudio()" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full font-bold text-sm transition-all shadow-md">
+                <svg id="playIcon" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                <svg id="stopIcon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8 7a1 1 0 00-1 1v4a1 1 0 001 1h4a1 1 0 001-1V8a1 1 0 00-1-1H8z" clip-rule="evenodd"></path></svg>
+                <span id="audioBtnText">Play Briefing</span>
+            </button>
+        </div>
+
+        <!-- Main Content Area (This text is read aloud by the TTS engine) -->
+        <div id="briefingContent" class="p-6 md:p-8 space-y-8">
+            
+            <p class="text-slate-600 text-lg leading-relaxed font-medium">
+                Hi Kristen. This is the executive summary for the short term rental project at 99 Happy Valley Road in Elysburg. Here is exactly how we plan to acquire, renovate, and launch the property by May 2027.
+            </p>
+
+            <!-- Section 1: The Deal -->
+            <section class="space-y-3">
+                <h2 class="text-xl font-bold text-slate-900 border-b-2 border-blue-100 pb-2">1. The Acquisition Strategy</h2>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                    <p class="font-bold text-slate-800">Target Offer: $10,000 to $12,000 Cash</p>
+                </div>
+                <p class="text-slate-700 leading-relaxed text-sm md:text-base">
+                    The sellers received an appraisal for eighty-two thousand dollars. However, that appraisal assumes they can sell the cabin on the open market. Because we own the land, our lease terms give us total control over approving any new buyer. Due to the severe flood risk in FEMA Flood Zone AE, we will not issue a new lease to an outside buyer. 
+                </p>
+                <p class="text-slate-700 leading-relaxed text-sm md:text-base">
+                    Since the cabin is uninsurable against floods, any money we invest could be washed away. Therefore, ten to twelve thousand dollars represents our absolute maximum risk tolerance. If they decline our cash offer, their lease requires them to pay thousands of dollars out of pocket to demolish and remove the structure. We are offering them the best financial way out.
+                </p>
+            </section>
+
+            <!-- Section 2: The Remodel -->
+            <section class="space-y-3">
+                <h2 class="text-xl font-bold text-slate-900 border-b-2 border-indigo-100 pb-2">2. Remodel & Operations</h2>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 text-sm md:text-base">
+                    <li><strong class="text-slate-900">Flood-Resilient Renovation:</strong> We will remove all carpet and install waterproof Luxury Vinyl Plank flooring. We will use mold-resistant drywall on the lower walls and elevate the electrical systems.</li>
+                    <li><strong class="text-slate-900">Smart Furnishing:</strong> We will buy durable used wood and metal furniture from Facebook Marketplace, but invest in brand new memory foam mattresses and commercial-grade white linens that can be bleached.</li>
+                    <li><strong class="text-slate-900">Remote Management:</strong> The property will be fully automated with smart locks and thermostats. We will manage bookings from Atlanta, utilizing local cleaners and a handyman dispatched via our existing Jobber software.</li>
+                    <li><strong class="text-slate-900">Seasonality:</strong> To avoid frozen pipes and high heating bills, we will operate strictly during the summer season targeting Knoebels visitors, and fully winterize the cabin from October through April.</li>
+                </ul>
+            </section>
+
+            <!-- Section 3: Financials -->
+            <section class="space-y-3">
+                <h2 class="text-xl font-bold text-slate-900 border-b-2 border-emerald-100 pb-2">3. The Financial Outlook</h2>
+                <p class="text-slate-700 leading-relaxed text-sm md:text-base mb-4">
+                    The total cash required to buy, remodel, and launch the property is estimated between twenty-one thousand and twenty-eight thousand dollars.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-100 p-4 rounded-lg text-center">
+                        <p class="text-xs text-slate-500 font-bold uppercase tracking-wide">Target Nightly Rate</p>
+                        <p class="text-xl font-extrabold text-slate-900 mt-1">$275 - $325</p>
+                    </div>
+                    <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-lg text-center">
+                        <p class="text-xs text-emerald-700 font-bold uppercase tracking-wide">Year 1 Gross Target</p>
+                        <p class="text-xl font-extrabold text-emerald-700 mt-1">$12,500</p>
+                    </div>
+                </div>
+                <p class="text-slate-700 leading-relaxed text-sm italic mt-2">
+                    *If the cabin survives just one single summer season without flooding, the initial acquisition cost is entirely recovered.
+                </p>
+            </section>
+
+            <!-- Section 4: Future Growth -->
+            <section class="space-y-3">
+                <h2 class="text-xl font-bold text-slate-900 border-b-2 border-orange-100 pb-2">4. The Compound Vision</h2>
+                <p class="text-slate-700 leading-relaxed text-sm md:text-base">
+                    This cabin is just Phase 1. Our long-term vision is to transition the adjacent family-controlled parcels into a multi-unit outdoor hospitality destination:
+                </p>
+                <div class="space-y-4 mt-4">
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-slate-800 text-white font-bold px-3 py-1 rounded text-sm shrink-0">Lot 99</div>
+                        <p class="text-sm text-slate-700 pt-1">We will subdivide the remaining space to rent out an RV pad for guests bringing their own travel trailers, complete with a hitching post.</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-slate-800 text-white font-bold px-3 py-1 rounded text-sm shrink-0">Lot 97</div>
+                        <p class="text-sm text-slate-700 pt-1">We will develop up to three premium campsites, leveraging the existing outhouse and adding wooden decks or concrete slabs for tents.</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-slate-800 text-white font-bold px-3 py-1 rounded text-sm shrink-0">Lot 95</div>
+                        <p class="text-sm text-slate-700 pt-1">We will cosmetically refresh the existing motorhome for turnkey rentals, and replace the broken secondary camper with a high-ROI travel trailer.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div class="bg-slate-100 text-center py-4 text-xs text-slate-400 font-medium">
+            End of Briefing • Stoneside Retreats
+        </div>
+
+    </div>
+
+    <!-- JavaScript for Text-to-Speech Engine -->
+    <script>
+        let currentTextZoom = 100;
+        function changeTextSize(delta) {
+            currentTextZoom += delta;
+            // Clamp zoom between 70% and 150%
+            if (currentTextZoom < 70) currentTextZoom = 70;
+            if (currentTextZoom > 150) currentTextZoom = 150;
+            
+            // Adjust the root font size to scale Tailwind's rem-based text classes seamlessly
+            document.documentElement.style.fontSize = currentTextZoom + '%';
+        }
+
+        const synth = window.speechSynthesis;
+        let isPlaying = false;
+        let utterance = null;
+
+        function toggleAudio() {
+            const btn = document.getElementById('audioBtn');
+            const btnText = document.getElementById('audioBtnText');
+            const playIcon = document.getElementById('playIcon');
+            const stopIcon = document.getElementById('stopIcon');
+
+            if (isPlaying) {
+                // Stop the audio
+                synth.cancel();
+                isPlaying = false;
+                
+                // Update UI
+                btn.classList.remove('playing-audio', 'bg-red-500', 'hover:bg-red-600');
+                btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                btnText.innerText = 'Play Briefing';
+                playIcon.classList.remove('hidden');
+                stopIcon.classList.add('hidden');
+            } else {
+                // Ensure any previous speech is cancelled before starting new
+                synth.cancel();
+
+                // Get all the text from the briefing content area
+                const contentDiv = document.getElementById('briefingContent');
+                // Clean up the text so it reads naturally (remove excessive whitespace)
+                let textToRead = contentDiv.innerText.replace(/\s+/g, ' ').trim();
+                
+                utterance = new SpeechSynthesisUtterance(textToRead);
+                
+                // Configure voice parameters for a natural sound
+                utterance.rate = 0.95; // Slightly slower for better comprehension
+                utterance.pitch = 1.0;
+                utterance.lang = 'en-US';
+
+                // Handle the end of the audio clip
+                utterance.onend = function() {
+                    isPlaying = false;
+                    btn.classList.remove('playing-audio', 'bg-red-500', 'hover:bg-red-600');
+                    btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                    btnText.innerText = 'Play Briefing';
+                    playIcon.classList.remove('hidden');
+                    stopIcon.classList.add('hidden');
+                };
+
+                // Start speaking
+                synth.speak(utterance);
+                isPlaying = true;
+
+                // Update UI to show it is playing
+                btn.classList.add('playing-audio', 'bg-red-500', 'hover:bg-red-600');
+                btn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                btnText.innerText = 'Stop Audio';
+                playIcon.classList.add('hidden');
+                stopIcon.classList.remove('hidden');
+            }
+        }
+
+        // Cancel speech synthesis if the user closes the window or navigates away
+        window.addEventListener('beforeunload', () => {
+            if (synth) synth.cancel();
+        });
+    </script>
+</body>
+</html>
